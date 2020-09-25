@@ -1,0 +1,88 @@
+The ``0-add_integer`` module
+============================
+
+Using ``add_integer``
+---------------------
+
+Import function from module:
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Test only integers:
+
+    >>> add_integer(6)
+    104
+    >>> add_integer(0)
+    98
+    >>> add_integer(-2, 2)
+    0
+    >>> add_integer(10, 18)
+    28
+    >>> add_integer(5652458, -5652459)
+    -1
+    >>> add_integer(-99, --99)
+    0
+    >>> add_integer((3+2),5)
+    10
+
+Test integers and floats:
+
+    >>> add_integer(0.9)
+    98
+    >>> add_integer(-90.7)
+    8
+    >>> add_integer(0, 7.000354785)
+    7
+    >>> add_integer(21561.31313, 123456)
+    145017
+    >>> add_integer(0.4, 0.5)
+    0
+    >>> add_integer(0)
+    98
+    >>> add_integer(2.90, )
+    100
+
+Test Other numbers:
+
+    >>> add_integer(float('inf'), float('-inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+    >>> add_integer(12000, 1e22000)
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+    >>> add_integer(1e95226541, 0)
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+    >>> add_integer(None, 15)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+    >>> add_integer([0, 2], 12)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+    >>> add_integer(1, [])
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+    >>> type(add_integer(0, 0))
+    <class 'int'>
+
+
+Other cases:
+
+    >>> add_integer()
+    Traceback (most recent call last):
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+    >>> add_integer(16, float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+    >>> add_integer("a", "b")
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+    >>> add_integer(5, "b")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+    >>> add_integer(True, False)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+    >>> add_integer(4, True)
+    Traceback (most recent call last):
+    TypeError: b must be an integer

@@ -1,0 +1,32 @@
+The ``100-matrix_mul`` module
+============================
+
+Using ``matrix_mul``
+---------------------
+
+Import function from module:
+	    >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+Not valid matrices:
+
+	>>> print(matrix_mul())
+	Traceback (most recent call last):
+	TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+	>>> print(matrix_mul([], [[1, 2]]))
+	Traceback (most recent call last):
+	ValueError: m_a can't be empty
+	>>> print(matrix_mul([[1, 2]], [[]]))
+	Traceback (most recent call last):
+	ValueError: m_b can't be empty
+	>>> matrix_mul([[89]], "Betty")
+	Traceback (most recent call last):
+	TypeError: m_b must be a list
+	>>> matrix_mul("Betty", [[89]])
+	Traceback (most recent call last):
+	TypeError: m_a must be a list
+	>>> matrix_mul([[1, 2], [3, 4]])
+	Traceback (most recent call last):
+	TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+	>>> matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, 8]], [[9, 10], [11, 12]], [[13, 14]])
+	Traceback (most recent call last):
+	TypeError: matrix_mul() takes 2 positional arguments but 4 were given

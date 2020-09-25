@@ -1,0 +1,101 @@
+The ``5-text_indentation`` module
+============================
+
+Using ``text_indentation``
+---------------------
+
+Import module:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Valid cases:
+
+    >>> text_indentation("Betty Holberton")
+    Betty Holberton
+    >>> text_indentation("Holberton          ")
+    Holberton
+    >>> text_indentation("        Betty")
+    Betty
+    >>> text_indentation("")
+    >>> text_indentation("      ")
+    >>> text_indentation("Betty: Holberton")
+    Betty:
+    <BLANKLINE>
+    Holberton
+    >>> text_indentation("      ?:  :  ")
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    >>> text_indentation("\n")
+    <BLANKLINE>
+    >>> text_indentation("\n\n")
+    <BLANKLINE>
+    <BLANKLINE>
+    >>> text_indentation("Betty\n\n")
+    Betty
+    <BLANKLINE>
+    >>> text_indentation("Betty : Snyder   ? Holberton.  School  ")
+    Betty:
+    <BLANKLINE>
+    Snyder?
+    <BLANKLINE>
+    Holberton.
+    <BLANKLINE>
+    School
+    >>> text_indentation(".?:  .??:?.  ")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    >>> text_indentation("?Betty.")
+    ?
+    <BLANKLINE>
+    Betty.
+    <BLANKLINE>
+    >>> text_indentation("\n\n.\n\n:?")
+    <BLANKLINE>
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+
+Invalidid cases:
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+    >>> text_indentation(44)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+    >>> text_indentation()
+    Traceback (most recent call last):
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+    >>> text_indentation()
+    Traceback (most recent call last):
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+    >>> text_indentation(True)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+    >>> text_indentation({"a": 1, "b": 2})
+    Traceback (most recent call last):
+    TypeError: text must be a string
