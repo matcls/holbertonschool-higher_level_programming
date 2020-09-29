@@ -57,10 +57,10 @@ def matrix_mul(m_a, m_b):
 
     new_matrix = [[] for i in range(len(m_a))]
 
-    for row in range(len(m_a)):
-        for col in range(len(m_b[0])):
+    for row in m_a:
+        for col in m_b[0]:
             count = 0
-            for i in range(len(m_b)):
+            for i in m_b:
                 count += m_a[row][i] * m_b[i][col]
             new_matrix[row].append(count)
 
