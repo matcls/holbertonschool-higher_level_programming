@@ -48,6 +48,3 @@ Not valid matrices:
 	>>> matrix_mul(None, [[1, 2], [3, 4]])
 	Traceback (most recent call last):
 	TypeError: m_a must be a list of lists
-	>>> matrix_mul([[1, 2], [3, 4]], None)
-	Traceback (most recent call last):
-	TypeError: m_b must be a list of lists
