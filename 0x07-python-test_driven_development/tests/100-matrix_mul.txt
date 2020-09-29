@@ -45,6 +45,6 @@ Not valid matrices:
 	>>> matrix_mul([[1, 2], [3, 4]], [[1, "Hello"], [3, 4]])
 	Traceback (most recent call last):
 	TypeError: m_b should contain only integers or floats
-	>>> matrix_mul(None, [[1, 2], [3, 4]])
+	>>> matrix_mul([1, 2], [[1, 2], [3, 4]])
 	Traceback (most recent call last):
 	TypeError: m_a must be a list of lists
