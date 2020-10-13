@@ -4,7 +4,6 @@
 import unittest
 from models.base import Base
 import json
-import pep8
 
 
 class TestBase(unittest.TestCase):
@@ -88,6 +87,11 @@ class TestBase(unittest.TestCase):
         self.assertIsNotNone(id(b2))
         self.assertEqual(b2.id, 1)
 
+    def test_id1(self):
+        b0 = Base()
+        self.assertTrue(hasattr(b0, 'id'))
+        Base._Base__nb_objects = 0
+
     def test_json_string(self):
         """Summary
         """
@@ -165,3 +169,7 @@ class TestBase(unittest.TestCase):
             print(base.nb_objects)
         with self.assertRaises(AttributeError):
             print(base.__nb_objects)
+
+    def test_class(self):
+        b1 = Base()
+        self.assertTrue(isinstance(b1, Base))
