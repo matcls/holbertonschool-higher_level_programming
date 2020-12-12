@@ -20,9 +20,9 @@ if __name__ == "__main__":
 
         cursor = connect.cursor()
         cursor.execute("SELECT * FROM states WHERE name LIKE BINARY \
-        'N%' ORDER BY states.id ASC")
+                       'N%' ORDER BY states.id ASC")
         query_rows = [print(state) for state in cursor.fetchall()]
         cursor.close()
         connect.close()
     else:
-        print("Usage: mysql username, mysql password, database name")
+        print("Usage: mysql_username mysql_password database_name")
