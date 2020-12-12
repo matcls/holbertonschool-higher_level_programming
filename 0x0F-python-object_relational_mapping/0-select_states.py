@@ -14,10 +14,11 @@ if __name__ == "__main__":
             user=argv[1],
             passwd=argv[2],
             db=argv[3])
-        cur = connect.cursor()
-        cur.execute("SELECT * FROM states ORDER BY states.id ASC")
-        query_rows = [print(state) for state in cur.fetchall()]
-        cur.close()
+
+        cursor = connect.cursor()
+        cursor.execute("SELECT * FROM states ORDER BY states.id ASC")
+        query_rows = [print(state) for state in cursor.fetchall()]
+        cursor.close()
         connect.close()
     else:
         print("Usage: mysql username, mysql password, database name")
