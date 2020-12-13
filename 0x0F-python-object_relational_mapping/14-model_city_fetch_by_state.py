@@ -19,9 +19,9 @@ if __name__ == "__main__":
         Session = sessionmaker(bind=engine)
         session = Session()
         query = session.query(City, State). \
-            filter(City.state_id == State.id).all()
+            filter(City.state_id == State.id)
         for city, state in query:
-            print("{}: ({}) {}".format(state.name, city.id, city.name))
+            print(state.name, ': ', '(', city.id, ') ', city.name, sep="")
         session.close()
     else:
         print("Usage: mysql_username mysql_password database_name")
