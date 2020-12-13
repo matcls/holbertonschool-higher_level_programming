@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Base model of a City."""
 
+from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import (
     Column,
     ForeignKey,
@@ -8,7 +9,8 @@ from sqlalchemy import (
     String
 )
 from model_state import Base
-from model_state import State
+
+Base = declarative_base()
 
 
 class City(Base):
