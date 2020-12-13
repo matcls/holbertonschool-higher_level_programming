@@ -3,18 +3,16 @@
 
 from sqlalchemy import (
     Column,
-    String,
+    ForeignKey,
     Integer,
-    ForeignKey
+    String
 )
-from model_state import (
-    Base,
-    State
-)
+from model_state import Base
+from model_state import State
 
 
 class City(Base):
-    """Represent a citie.
+    """Represent a city.
 
     Attributes:
         id (sqlalchemy.Int): City id.
@@ -34,6 +32,6 @@ class City(Base):
     )
     state_id = Column(
         Integer,
-        ForeignKey(State.id),
+        ForeignKey("states.id"),
         nullable=False
     )
