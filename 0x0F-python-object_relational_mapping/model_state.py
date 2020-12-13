@@ -3,8 +3,8 @@
 
 from sqlalchemy import (
     Column,
-    String,
-    Integer
+    Integer,
+    String
 )
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -22,7 +22,6 @@ class State(Base):
     id = Column(
         Integer,
         autoincrement=True,
-        unique=True,
         nullable=False,
         primary_key=True
     )
