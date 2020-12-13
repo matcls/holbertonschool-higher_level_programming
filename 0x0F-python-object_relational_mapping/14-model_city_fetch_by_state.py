@@ -10,18 +10,15 @@ if __name__ == "__main__":
     from model_state import Base
     from model_state import State
 
-    if len(argv) == 4:
-        engine = create_engine(
-            'mysql+mysqldb://{}:{}@localhost:3306/{}'
-            .format(argv[1], argv[2], argv[3]), pool_pre_ping=True)
+    engine = create_engine(
+        'mysql+mysqldb://{}:{}@localhost:3306/{}'
+        .format(argv[1], argv[2], argv[3]), pool_pre_ping=True)
 
-        Base.metadata.create_all(engine)
-        Session = sessionmaker(bind=engine)
-        session = Session()
-        query = session.query(City, State). \
-            filter(City.state_id == State.id)
-        for city, state in query:
-            print(state.name, ': ', '(', city.id, ') ', city.name, sep="")
-        session.close()
-    else:
-        print("Usage: mysql_username mysql_password database_name")
+    Base.metadata.create_all(engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    query = session.query(City, State). \
+        filter(City.state_id == State.id)
+    for city, state in query:
+        print(state.name, ': ', '(', city.id, ') ', city.name, sep="")
+    session.close()
