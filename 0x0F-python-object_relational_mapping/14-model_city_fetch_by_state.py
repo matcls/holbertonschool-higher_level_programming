@@ -1,23 +1,26 @@
 #!/usr/bin/python3
-"""Print all City objects from the database hbtn_0e_14_usa."""
+'''
+adding class city with a relationship
+with state.id
+'''
+from model_city import City, Base
+from model_state import State
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import (create_engine)
+import sys
 
 if __name__ == "__main__":
-    from sqlalchemy import (create_engine)
-    from sqlalchemy.orm import sessionmaker
-    from sys import argv
-
-    from model_city import City
-    from model_state import Base
-    from model_state import State
-
-    engine = create_engine(
-        'mysql+mysqldb://{}:{}@localhost:3306/{}'
-        .format(argv[1], argv[2], argv[3]), pool_pre_ping=True)
-
+    '''
+    en este punto creamos el engine a nuetsra base de datos mysqldb
+    tomado el input con argv[] y creamos el session instance
+    '''
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
+        sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
+    # creamos nuestro objeto sesisonmarker
     Session = sessionmaker(bind=engine)
     session = Session()
-    query = session.query(City, State).\
-        filter(City.state_id == State.id).order_by(City.id).all()
-    for city, state in query:
+    a = session.query(State, City).filter(
+        State.id == City.state_id).order_by(City.id).all()
+    for city, state in a:
         print("{}: ({}) {}".format(city.name, state.id, state.name))
     session.close()
