@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-"""Contains the class definition of City."""
+"""Contains the class definition of State."""
 
-from relationship_city import City
 from sqlalchemy import (
     Column,
     Integer,
