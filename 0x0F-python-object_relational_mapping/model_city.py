@@ -7,7 +7,8 @@ from sqlalchemy import (
     Integer,
     String
 )
-from model_state import Base
+from model_state import Base, State
+from sqlalchemy.ext.declarative import declarative_base
 
 
 class City(Base):
@@ -20,7 +21,6 @@ class City(Base):
     __tablename__ = "cities"
     id = Column(
         Integer,
-        autoincrement=True,
         unique=True,
         nullable=False,
         primary_key=True
