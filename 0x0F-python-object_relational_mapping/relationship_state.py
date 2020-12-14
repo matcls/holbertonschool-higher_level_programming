@@ -1,16 +1,16 @@
 #!/usr/bin/python3
 """Contains the class definition of City."""
 
-from relationship_city import Base
 from relationship_city import City
 from sqlalchemy import (
     Column,
-    ForeignKey,
     Integer,
     String
 )
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
+
+Base = declarative_base()
 
 
 class State(Base):
@@ -18,7 +18,6 @@ class State(Base):
     __tablename__ = "states"
     id = Column(
         Integer,
-        autoincrement=True,
         unique=True,
         primary_key=True,
         nullable=False
