@@ -3,25 +3,23 @@
 
 
 def find_peak(list_of_integers):
-    """
-    Find a peak in a list of unsorted integers
-    """
+    """Find a peak in a list of unsorted integers"""
     size = len(list_of_integers)
     if size < 3:
         return None
-    else:
-        integers = list_of_integers
-        pivot = 0
-        peak = integers[pivot]
-        while pivot < len(integers):
-            if pivot == 0 and pivot + 1 < len(integers)\
-                and (integers[0] > integers[1]
-                     or integers[0] == integers[1]):
-                peak = integers[0]
-            if pivot + 1 < len(integers)\
-                and integers[pivot - 1] < integers[pivot]\
-                    and integers[pivot] > integers[pivot + 1]:
-                if integers[pivot] > peak:
-                    peak = integers[pivot]
-            pivot += 1
+    peak = peak_finder(list_of_integers, 0, size - 1)
     return peak
+
+
+def peak_finder(list_of_integers, left, rigth):
+    """Find the peak in a list of unsorted list of integers"""
+    mid = (rigth - left) // 2 + left
+    integers = list_of_integers
+
+    if mid + 1 >= rigth + 1 or integers[mid + 1] <= integers[mid]:
+        if mid - 1 < 0 or integers[mid - 1] <= integers[mid]:
+            return integers[mid]
+        else:
+            return find_peak(integers, 0, mid)
+    else:
+        return peak_finder(integers, mid + 1, rigth)
